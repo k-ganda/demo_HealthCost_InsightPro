@@ -50,6 +50,65 @@
     margin: 5px 0;
   }
 }
+
+/*-------------------Section 1-------------------*/
+.section_1 {
+  background-image: url("images/background.jpg");
+  background-size: cover;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  height: 600px;
+  padding: 20px;
+}
+
+.nested_section {
+  background-color: #00287b;
+  padding: 20px;
+  width: 40%;
+  height: 90%;
+  margin-right: -700px; /* Add margin to create space between sections */
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nested_section h2 {
+  margin-bottom: 50px;
+  font-size: 30px;
+}
+.nested_section h2,
+.nested_section p {
+  text-align: center;
+  color: #ffffffff;
+}
+.nested_section p {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .section_1 {
+    padding: 10px;
+    height: auto; /* Auto height for smaller screens */
+  }
+
+  .nested_section {
+    width: 80%;
+    margin-right: 0; /* Remove margin for smaller screens */
+  }
+
+  .nested_section h2 {
+    font-size: 24px; /* Adjust font size for smaller screens */
+    margin-bottom: 30px; /* Adjust margin for smaller screens */
+  }
+
+  .nested_section p {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+}
 /*-------------Our Services---------*/
 .access-h1 {
   color: #0c4da2;
