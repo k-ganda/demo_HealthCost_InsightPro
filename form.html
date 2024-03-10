@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="form.css" />
+    <title>Login & Sign Up</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="nav">
+        <img src="./images/logo1.png" alt="logo" id="home" />
+
+        <div class="nav-button">
+          <button class="btn white-btn" id="loginBtn" onclick="login()">
+            Login
+          </button>
+          <button class="btn" id="registerBtn" onclick="register()">
+            Sign Up
+          </button>
+        </div>
+        <div class="nav-menu-btn">
+          <!-- <i class="bx bx-menu" onclick="myMenuFunction()"></i> -->
+        </div>
+      </nav>
+
+      <!----------------------------- Form box ----------------------------------->
+      <div class="form-box">
+        <!------------------- login form -------------------------->
+
+        <div class="login-container" id="login">
+          <div class="top">
+            <span
+              >Don't have an account?
+              <a href="#" onclick="register()">Sign Up</a></span
+            >
+            <header>Login</header>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Email"
+              id="login-email"
+              autocomplete="off"
+            />
+            <i class="bx bx-user"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="password"
+              class="input-field"
+              placeholder="Password"
+              id="login-password"
+              autocomplete="off"
+            />
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="submit"
+              class="submit"
+              value="Sign In"
+              id="btn-login"
+            />
+          </div>
+          <div class="two-col">
+            <div class="one">
+              <input type="checkbox" id="login-check" />
+              <label for="login-check"> Remember Me</label>
+            </div>
+            <div class="two">
+              <label><a href="#">Forgot password?</a></label>
+            </div>
+          </div>
+        </div>
+
+        <!------------------- registration form -------------------------->
+        <div class="register-container" id="register">
+          <div class="top">
+            <span
+              >Have an account? <a href="#" onclick="login()">Login</a></span
+            >
+            <header>Sign Up</header>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Full name"
+              id="fname"
+              autocomplete="off"
+            />
+            <i class="bx bx-user"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Insurance name"
+              id="Iname"
+              autocomplete="off"
+            />
+            <i class="bx bx-user"></i>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Email"
+              id="email"
+              autocomplete="off"
+            />
+            <i class="bx bx-envelope"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="password"
+              class="input-field"
+              placeholder="Password"
+              id="password"
+              autocomplete="off"
+            />
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Phone number"
+              id="phone"
+              autocomplete="off"
+            />
+            <i class="bx bx-phone"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Role(Admin | Contact Person)"
+              id="role"
+              autocomplete="off"
+            />
+            <i class="bx bx-briefcase"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="City"
+              id="location"
+              autocomplete="off"
+            />
+            <i class="bx bx-map"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="file"
+              class="input-field"
+              id="memberData"
+              accept=".csv,.xlsx,.xls"
+            />
+            <i class="bx bx-upload"></i>
+          </div>
+          <div class="input-box">
+            <input type="submit" class="submit" id="btn" value="Register" />
+          </div>
+          <div class="two-col">
+            <div class="one">
+              <input type="checkbox" id="register-check" />
+              <label for="register-check"> Remember Me</label>
+            </div>
+            <div class="two">
+              <label><a href="#">Terms & conditions</a></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function myMenuFunction() {
+        var i = document.getElementById("navMenu");
+
+        if (i.className === "nav-menu") {
+          i.className += " responsive";
+        } else {
+          i.className = "nav-menu";
+        }
+      }
+    </script>
+
+    <script>
+      document.getElementById("home").addEventListener("click", () => {
+        window.location.href = "./index.html";
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="form.js"></script>
+  </body>
+</html>
+
+// // server.js const express = require('express'); const multer =
+require('multer'); const path = require('path'); const app = express(); // Set
+storage engine const storage = multer.diskStorage({ destination: function (req,
+file, cb) { cb(null, 'uploads/'); // Specify the directory where the files will
+be uploaded }, filename: function (req, file, cb) { cb(null, file.fieldname +
+'-' + Date.now() + path.extname(file.originalname)); } }); // Initialize upload
+const upload = multer({ storage: storage, fileFilter: function (req, file, cb) {
+checkFileType(file, cb); } }).single('memberData'); // 'memberData' should match
+the name of the file input field in your HTML form // Check file type function
+checkFileType(file, cb) { const filetypes = /csv|xls|xlsx/; const extname =
+filetypes.test(path.extname(file.originalname).toLowerCase()); const mimetype =
+filetypes.test(file.mimetype); if (extname && mimetype) { return cb(null, true);
+} else { cb('Error: Invalid file type. Only CSV, XLS, or XLSX files are
+allowed.'); } } // Handle file upload app.post('/upload', (req, res) => {
+upload(req, res, (err) => { if (err) { res.status(400).send(err); } else { if
+(req.file == undefined) { res.status(400).send('Error: No file selected.'); }
+else { // Save file details in the database and associate it with the user who
+uploaded it // Respond with a success message res.status(200).send('File
+uploaded successfully'); } } }); }); // Other routes and middleware for
+authentication, database queries, etc. app.listen(3000, () => {
+console.log('Server started on port 3000'); }); //
