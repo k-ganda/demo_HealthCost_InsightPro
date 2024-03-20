@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>Contact Person Dashboard</title>
+	</head>
+	<body>
+		<h1>Welcome to Your Dashboard, {{contactPerson.name}}</h1>
+		<p>Your role: {{contactPerson.role}}</p>
+		<p>Your email: {{contactPerson.email}}</p>
+		<!-- Add more personalized information here -->
+        <h2>Recommendations:</h2>
+    <ul>
+        {{
+#each
+ recommendations}}
+            <li>{{this}}</li>
+        {{
+/each
+}}
+    </ul>
+
+    <h2>Reports:</h2>
+    <ul>
+        {{
+#each
+ reports}}
+            <li>{{this}}</li>
+        {{
+/each
+}}
+    </ul>
+	</body>
+</html>

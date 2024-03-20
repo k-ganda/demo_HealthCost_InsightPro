@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealthCost Insight Pro</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/particles.js/2.0.0/particles.min.js"></script>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');</style>
+    
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <img src="images/logo.png" alt="Logo" class="logo" />
+        <div class="header-right">
+          <a id="home" class="active" href="#home">Home</a>
+          <a href="#services">Our Services</a>
+          <a href="/form">Login</a>
+          
+        </div>
+      </div>
+
+      
+    </header>
+    <section  class="section_1">   
+      <section class="nested_section">
+        <h2>Drive your Health Insurance Forward</h2>
+        <p>HealthCost InsightPro is dedicated to serving the insurance industry by
+          empowering healthcare insurance companies to navigate and embrace change effectively.
+          Our platform enables insurers to adapt and thrive amidst the evolving landscape of our times,
+          ensuring their continued success and growth.</p>
+      </section>
+    </section>
+
+    <div id="services" class="container-fluid12">
+      <div class="access">
+
+          <h1 class="access-h1">OUR SERVICES</h1>
+    
+          
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-md-6 col-lg-4 wow fadeInUp " data-wow-delay="0.1s">
+                      <img class="img-fluid img-log" src="images/image_1.png" alt="login-vector">
+                      <div class="content-access">
+                          <h3>PERSONALISED SOLUTIONS</h3>
+                          <P>
+                            Our dedicated team understands your unique needs. We provide tailored solutions and recommendations 
+                            based on your company's demographics, preferences, and cost-saving goals.
+                            Let us help you find the perfect healthcare plan for your workforce.
+                          </P>
+                          
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4  img-acess  wow fadeInUp " data-wow-delay="0.1s">
+                      <img class="img-fluid" src="images/logs_pi.png" alt="login-vector">
+                      <div class="content-access">
+                          <h3>COST ANALYSIS</h3>
+                          <P>
+                            Gain insights into your healthcare costs with our advanced analysis tools. 
+                            Understand your expenses better and make informed decisions to optimize
+                            your healthcare spending.
+                          </P>
+                          
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4  img-acess  wow fadeInUp " data-wow-delay="0.1s">
+                      <img class="img-fluid" src="images/dash.png" alt="login-vector">
+                      <div class="content-access">
+                          <h3>STREAMLINED TRACKING</h3>
+                          <P>
+                            Say goodbye to scattered data. Our intuitive dashboard consolidates all
+                            your healthcare cost information in one place.
+                            Track expenses, view analytics, and monitor trends effortlessly.
+                          </P>
+                      </div>
+                  </div>
+              </div>
+              </div>
+
+          </div>
+      </div>
+    </div>
+  
+    <footer class="footer">
+      <div class="copyright">
+          <img src="/images/logo.png" alt="">
+          <h2>&copy; 2024 | HealthCost InsightPro</h2>
+      </div>
+          <div class="else">
+            <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="/form">Login</a></li>
+            
+          </ul>
+          </div>
+          
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const userActions = document.getElementById("user-actions");
+        const token = localStorage.getItem("auth-token");
+        const role = localStorage.getItem("role");
+
+        if (token) {
+          if (role == "admin") {
+            userActions.innerHTML = `
+      <li><a href="#" onclick="logout()">Logout</a></li>
+      <li><a href="./admin_dashboard"> Dashboard</a></li>
+  `;
+          } else {
+            userActions.innerHTML = `
+    <li><a href="#" onclick="logout()">Logout</a></li>
+  `;
+          }
+        } else {
+          userActions.innerHTML = `
+    <li><a id="cont">Contact</a></li>
+    <li><a href="./form">Login</a></li>
+  `;
+        }
+      });
+
+      function logout() {
+        localStorage.removeItem("auth-token");
+        window.location.href = "./form";
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    
+  </body>
+</html>

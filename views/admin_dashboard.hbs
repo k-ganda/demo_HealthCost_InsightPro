@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>Admin Dashboard</title>
+	</head>
+	<body>
+		<h1>Welcome to the Admin Dashboard</h1>
+		<!-- Form to write recommendations -->
+		<form action="/admin/write-recommendation" method="POST">
+			<label for="recommendation">Write Recommendation:</label>
+			<textarea
+				name="recommendation"
+				id="recommendation"
+				rows="4"
+				cols="50"
+			></textarea>
+			<input type="submit" value="Submit Recommendation" />
+		</form>
+
+		<!-- Form to write reports -->
+		<form action="/admin/write-report" method="POST">
+			<label for="report">Write Report:</label>
+			<textarea name="report" id="report" rows="4" cols="50"></textarea>
+			<input type="submit" value="Submit Report" />
+		</form>
+
+		<h2>Contact Persons List:</h2>
+
+		<ul>
+			{{#each contactPersons}}
+				<li>{{this.name}} - {{this.role}}</li>
+			{{/each}}
+		</ul>
+	</body>
+</html>
