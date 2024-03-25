@@ -1,34 +1,93 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<title>Admin Dashboard</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="admin.css" />
 	</head>
 	<body>
-		<h1>Welcome to the Admin Dashboard</h1>
-		<!-- Form to write recommendations -->
-		<form action="/admin/write-recommendation" method="POST">
-			<label for="recommendation">Write Recommendation:</label>
-			<textarea
-				name="recommendation"
-				id="recommendation"
-				rows="4"
-				cols="50"
-			></textarea>
-			<input type="submit" value="Submit Recommendation" />
-		</form>
-
-		<!-- Form to write reports -->
-		<form action="/admin/write-report" method="POST">
-			<label for="report">Write Report:</label>
-			<textarea name="report" id="report" rows="4" cols="50"></textarea>
-			<input type="submit" value="Submit Report" />
-		</form>
-
-		<h2>Contact Persons List:</h2>
-
-		<ul>
-			{{#each contactPersons}}
-				<li>{{this.name}} - {{this.role}}</li>
-			{{/each}}
-		</ul>
+		<header>
+			<div class="logosec">
+				<div class="logo">HealthCost InsightPro</div>
+			</div>
+			<div class="search-container">
+				<input type="text" class="search-input" placeholder="Search..." />
+				<button class="search-button">Search</button>
+			</div>
+			<div class="message">
+				<div class="circle"></div>
+				<img
+					src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png"
+					class="icn"
+					alt="" />
+			</div>
+		</header>
+		<div class="sidebar">
+			<div class="heading">
+				<h2 id="fd">Admin Dashboard</h2>
+			</div>
+			<div class="person">
+				<img src="images/avatar.png" alt="" />
+				<p id="person-name">Kathrine Ganda</p>
+			</div>
+			<div class="links">
+				<h3>Quick Links</h3>
+				<ul>
+					<li>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							style="fill: white">
+							<path
+								d="m21.743 12.331-9-10c-.379-.422-1.107-.422-1.486 0l-9 10a.998.998 0 0 0-.17 1.076c.16.361.518.593.913.593h2v7a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-4h4v4a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-7h2a.998.998 0 0 0 .743-1.669z"></path>
+						</svg>
+						<a href="admin.html">Home</a>
+					</li>
+					<li>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							style="fill: white">
+							<path d="M2 7v1l11 4 9-4V7L11 4z"></path>
+							<path
+								d="M4 11v4.267c0 1.621 4.001 3.893 9 3.734 4-.126 6.586-1.972 7-3.467.024-.089.037-.178.037-.268V11L13 14l-5-1.667v3.213l-1-.364V12l-3-1z"></path>
+						</svg>
+						<a href="">Users</a>
+					</li>
+					<li>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							style="fill: white">
+							<path
+								d="M12 21c4.411 0 8-3.589 8-8 0-3.35-2.072-6.221-5-7.411v2.223A6 6 0 0 1 18 13c0 3.309-2.691 6-6 6s-6-2.691-6-6a5.999 5.999 0 0 1 3-5.188V5.589C6.072 6.779 4 9.65 4 13c0 4.411 3.589 8 8 8z"></path>
+							<path d="M11 2h2v10h-2z"></path>
+						</svg>
+						<a id="logout">Logout</a>
+					</li>
+					<li>
+						<img src="images/logo.png" alt="" class="logo" />
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="welcome">
+			<h1>Welcome to the admin Dashboard</h1>
+		</div>
 	</body>
+	<script>
+		const logoutBtn = document.getElementById('logout');
+		// JavaScript for Dropdown Functionality
+		logoutBtn.addEventListener('click', () => {
+			localStorage.removeItem('auth-token');
+			window.location.href = './form.html';
+		});
+	</script>
 </html>

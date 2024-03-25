@@ -2,11 +2,6 @@ const router = require('express').Router();
 const User = require('../model/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
-// Add multer for handling file uploads
-const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
-
 router.post('/register', async (req, res) => {
 	//Validate data
 	//const { error } = registerValidation(req.body);
