@@ -21,11 +21,14 @@ To set up the HealthCost tool locally, These are the steps you should follow:
 
 1.**Clone the Repository**:
 On your terminal, write this:
-         # git clone https://github.com/k-ganda/demo_healthcost_insightpro( the link can be found by clicking **code** from the repository and then copy it).
+         # git clone https://github.com/k-ganda/demo_HealthCost_InsightPro
+You can also find the link by clicking on the green button written code: 
+![image](https://github.com/k-ganda/demo_HealthCost_InsightPro/assets/116561806/91607d35-0229-41e9-aef8-c3681da59474)
+
 
 2. **Navigate to the directory**
 After cloning, move into the directory:
-          # cd demo_healthcost_insightpro
+          # cd demo_HealthCost_InsightPro
 
 3. **Install the dependencies**
    Still, on your terminal, write the command below. This command will install all required dependencies for the project.
