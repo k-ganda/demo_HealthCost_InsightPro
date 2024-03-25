@@ -1,0 +1,282 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="/frontend/form.css" />
+		<title>Login & Sign Up</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<nav class="nav">
+				<img src="images/logo.png" alt="logo" id="home" />
+
+				<div class="nav-button">
+					<button class="btn white-btn" id="loginBtn" onclick="login()">
+						Login
+					</button>
+					<button class="btn" id="registerBtn" onclick="register()">
+						Sign Up
+					</button>
+				</div>
+				<div class="nav-menu-btn">
+					<!-- <i class="bx bx-menu" onclick="myMenuFunction()"></i> -->
+				</div>
+			</nav>
+
+			<!----------------------------- Form box ----------------------------------->
+			<div class="form-box">
+				<!------------------- login form -------------------------->
+
+				<div class="login-container" id="login">
+					<div class="top">
+						<span
+							>Don't have an account?
+							<a href="#" onclick="register()">Sign Up</a></span
+						>
+						<header>Login</header>
+					</div>
+
+					<div class="input-box">
+						<input
+							type="text"
+							class="input-field"
+							placeholder="Email"
+							id="login-email"
+							autocomplete="off" />
+						<i class="bx bx-user"></i>
+					</div>
+					<div class="input-box">
+						<input
+							type="password"
+							class="input-field"
+							placeholder="Password"
+							id="login-password"
+							autocomplete="off" />
+						<i class="bx bx-lock-alt"></i>
+					</div>
+
+					<div class="input-box">
+						<input
+							type="submit"
+							class="submit"
+							value="Sign In"
+							id="btn-login" />
+					</div>
+					<div class="two-col">
+						<div class="one">
+							<input type="checkbox" id="login-check" />
+							<label for="login-check"> Remember Me</label>
+						</div>
+						<div class="two">
+							<label><a href="#">Forgot password?</a></label>
+						</div>
+					</div>
+				</div>
+
+				<!------------------- registration form -------------------------->
+				<div class="register-container" id="register">
+					<div class="top">
+						<span
+							>Have an account? <a href="#" onclick="login()">Login</a></span
+						>
+						<header>Sign Up</header>
+					</div>
+
+					<div class="input-box">
+						<input
+							type="text"
+							class="input-field"
+							placeholder="Full name"
+							id="name"
+							autocomplete="off" />
+						<i class="bx bx-user"></i>
+					</div>
+					<div class="input-box">
+						<input
+							type="text"
+							class="input-field"
+							placeholder="Email"
+							id="email"
+							autocomplete="off" />
+						<i class="bx bx-envelope"></i>
+					</div>
+					<div class="input-box">
+						<input
+							type="password"
+							class="input-field"
+							placeholder="Password"
+							id="password"
+							autocomplete="off" />
+						<i class="bx bx-lock-alt"></i>
+					</div>
+					<div class="input-box">
+						<input
+							type="text"
+							class="input-field"
+							placeholder="Role(admin | contact Person)"
+							id="role"
+							autocomplete="off" />
+						<i class="bx bx-briefcase"></i>
+					</div>
+					<div class="input-box">
+						<input
+							type="text"
+							class="input-field"
+							placeholder="City"
+							id="location"
+							autocomplete="off" />
+						<i class="bx bx-map"></i>
+					</div>
+					<div class="input-box">
+						<input
+							type="text"
+							class="input-field"
+							placeholder="Insurance name"
+							id="insurance_name"
+							autocomplete="off" />
+						<i class="bx bx-user"></i>
+					</div>
+					<div class="input-box">
+						<input
+							type="text"
+							class="input-field"
+							placeholder="phone number"
+							id="phone_number"
+							autocomplete="off" />
+						<i class="bx bx-phone"></i>
+					</div>
+					<div class="input-box">
+						<input type="textarea" class="input-field" id="excelFiles" />
+						<i class="bx bx-upload"></i>
+					</div>
+
+					<div class="input-box">
+						<input type="submit" class="submit" id="btn" value="Register" />
+					</div>
+
+					<div class="two-col">
+						<div class="one">
+							<input type="checkbox" id="register-check" />
+							<label for="register-check"> Remember Me</label>
+						</div>
+						<div class="two">
+							<label><a href="#">Terms & conditions</a></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			function myMenuFunction() {
+				var i = document.getElementById('navMenu');
+				if (i.className === 'nav-menu') {
+					i.className += ' responsive';
+				} else {
+					i.className = 'nav-menu';
+				}
+			}
+		</script>
+
+		<script>
+			document.getElementById('home').addEventListener('click', () => {
+				window.location.href = '/frontend/index.html';
+			});
+		</script>
+		<script>
+			var a = document.getElementById('loginBtn');
+			var b = document.getElementById('registerBtn');
+			var x = document.getElementById('login');
+			var y = document.getElementById('register');
+			function login() {
+				x.style.left = '4px';
+				y.style.right = '-520px';
+				a.className += ' white-btn';
+				b.className = 'btn';
+				x.style.opacity = 1;
+				y.style.opacity = 0;
+			}
+			function register() {
+				x.style.left = '-510px';
+				y.style.right = '5px';
+				a.className = 'btn';
+				b.className += ' white-btn';
+				x.style.opacity = 0;
+				y.style.opacity = 1;
+			}
+		</script>
+
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script>
+			document.getElementById('btn').addEventListener('click', async (e) => {
+				e.preventDefault();
+				const name = document.getElementById('name').value;
+				const email = document.getElementById('email').value;
+				const password = document.getElementById('password').value;
+				const role = document.getElementById('role').value;
+				const location = document.getElementById('location').value;
+				const insurance_name = document.getElementById('insurance_name').value;
+				const phone_number = document.getElementById('phone_number').value;
+				const excelFiles = document.getElementById('excelFiles').value;
+				const Report_and_Recommendation = '';
+				const response = await fetch(
+					'http://localhost:3000/api/user/register',
+					{
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({
+							name,
+							email,
+							password,
+							role,
+							location,
+							insurance_name,
+							phone_number,
+							excelFiles,
+							Report_and_Recommendation,
+						}),
+					}
+				);
+				const result = await response.json();
+				if (response.status == 200) {
+					alert('User created successfully');
+				} else {
+					alert(result.error);
+				}
+			});
+		</script>
+		<script>
+			document
+				.getElementById('btn-login')
+				.addEventListener('click', async (e) => {
+					e.preventDefault();
+					const email = document.getElementById('login-email').value;
+					const password = document.getElementById('login-password').value;
+					const response = await fetch('http://127.0.0.1:3000/api/user/login', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({
+							email,
+							password,
+						}),
+					});
+					const result = await response.json();
+					if (response.status == 200) {
+						if (result.user.role == 'admin') {
+							window.location.href = '/frontend/admin.html';
+						} else {
+							window.location.href = '/frontend/dashboard.html';
+						}
+					}
+				});
+		</script>
+	</body>
+</html>
