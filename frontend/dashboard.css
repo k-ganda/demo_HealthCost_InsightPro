@@ -136,14 +136,68 @@ header {
 .user-info p em {
 	font-style: italic;
 }
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
+/* Add a media query for smaller screens */
+@media (max-width: 768px) {
+	/* Update the styles for the header */
+	header {
+		padding: 10px;
+	}
+	.logo {
+		font-size: 20px;
+	}
+	.message {
+		display: none;
+	}
+	.menuicn {
+		display: block;
+	}
+	/* Update the styles for the sidebar */
 	.sidebar {
-		width: 200px; /* Adjust based on your preference for mobile view */
+		width: 200px;
+	}
+	.sidebar h2 {
+		font-size: 16px;
+	}
+	/* Update the styles for the main content */
+	.main-content {
+		position: relative;
+		margin-left: 200px;
+		top: 50px;
+		padding: 20px;
+	}
+	.user-info {
+		padding: 10px;
+	}
+}
+
+@media (max-width: 480px) {
+	/* Update the styles for the header */
+	header {
+		padding: 5px;
+	}
+	.logo {
+		font-size: 18px;
+	}
+	.message {
+		display: none;
 	}
 
+	.menuicn {
+		display: block;
+	}
+	/* Update the styles for the sidebar */
+	.sidebar {
+		width: 150px;
+	}
+	.sidebar h2 {
+		font-size: 14px;
+	}
+	/* Update the styles for the main content */
 	.main-content {
-		margin-left: 0;
-		padding-top: 100px; /* Added 100px padding to the top for mobile view */
+		margin-left: 150px;
+		padding: 10px;
+	}
+	.user-info {
+		padding: 5px;
 	}
 }

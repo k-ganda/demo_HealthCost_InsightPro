@@ -90,4 +90,14 @@ router.post('/update', async (req, res) => {
 	}
 });
 
+router.get('/user/:email', async (req, res) => {
+	try {
+		const user = await User.findOne({ email: req.params.email });
+		res.status(200).json({ Message: user });
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ Message: 'Server Error' });
+	}
+});
+
 module.exports = router;

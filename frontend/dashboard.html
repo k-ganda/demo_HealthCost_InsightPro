@@ -57,32 +57,29 @@
 
 		<script>
 			document.addEventListener('DOMContentLoaded', async () => {
+				const token = localStorage.getItem('token');
+				if (!token) {
+					window.location.href = './form.html';
+				}
 				const userDataContainer = document.getElementById('userDataContainer');
-
-				await fetch('http://localhost:3000/api/user/users', {}).then(
-					async (response) => {
-						const result = await response.json();
-						console.log(result);
-
-						const userDiv = document.createElement('div');
-						userDiv.classList.add('user-info');
-						userDiv.innerHTML = `
-                    <p><strong>Name:</strong> ${result.name}</p>
-                    <p><strong>Email:</strong> ${result.email}</p>
+				const user = JSON.parse(localStorage.getItem('user'));
+				const userDiv = document.createElement('div');
+				userDiv.classList.add('user-info');
+				userDiv.innerHTML = `
+                    <p><strong>Name:</strong> ${user.name}</p>
+                    <p><strong>Email:</strong> ${user.email}</p>
                     <p><strong>Insurance name:</strong> ${
-											result.insurance_name
+											user.insurance_name
 										}</p>
-                    <p><strong>Location:</strong> ${result.location}</p>
-                    <p><strong>Excel Files:</strong> ${result.excelFiles}</p>
+                    <p><strong>Location:</strong> ${user.location}</p>
+                    <p><strong>Excel Files:</strong> ${user.excelFiles}</p>
                     ${
-											result.recommendations
-												? `<p><strong>Recommendations:</strong> ${result.recommendations}</p>`
-												: `<p><em>No recommendations available</em></p>`
+											user.Report_and_Recommendation
+												? `<p><strong>Recommendations:</strong> ${user.Report_and_Recommendation}</p>`
+												: `<p><em>No recommendations available at the moment</em></p>`
 										}
                 `;
-						userDataContainer.append(userDiv);
-					}
-				);
+				userDataContainer.append(userDiv);
 			});
 
 			const logoutBtn = document.getElementById('logout');
