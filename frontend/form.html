@@ -149,11 +149,28 @@
 							autocomplete="off" />
 						<i class="bx bx-phone"></i>
 					</div>
-					<div class="input-box">
-						<input type="textarea" class="input-field" id="excelFiles" />
-						<i class="bx bx-upload"></i>
+					<div class="textarea-section">
+						<div class="input-box">
+							<textarea
+								class="input-field"
+								id="tableInput"
+								rows="10"
+								placeholder="Paste your tabular data here..."></textarea>
+							<i class="bx bx-upload"></i>
+						</div>
+						<button onclick="displayTextInTable()">
+							Display Text as Table
+						</button>
 					</div>
-
+					<!-- Table Display Section -->
+					<div class="table-display">
+						<input
+							type="text"
+							class="input-field"
+							id="excelFiles"
+							placeholder="Text in Table Format"
+							readonly />
+					</div>
 					<div class="input-box">
 						<input type="submit" class="submit" id="btn" value="Register" />
 					</div>
@@ -250,6 +267,35 @@
 					alert(result.error);
 				}
 			});
+		</script>
+		<script>
+			function displayTextInTable() {
+				var text = document.getElementById('tableInput').value.trim(); // Get text from textarea
+				var rows = text.split('\n'); // Split text into rows
+
+				var tableText = ''; // Initialize variable to store table text
+
+				// Loop through each row
+				rows.forEach(function (row) {
+					var columns = row.split('\t'); // Assuming columns are separated by tabs (\t)
+
+					// Loop through each column
+					columns.forEach(function (column, index) {
+						// Append column to tableText
+						tableText += column;
+
+						// Add tab or newline character if not the last column
+						if (index < columns.length - 1) {
+							tableText += '\t';
+						} else {
+							tableText += '\n';
+						}
+					});
+				});
+
+				// Set table text to the input field
+				document.getElementById('excelFiles').value = tableText;
+			}
 		</script>
 		<script>
 			document

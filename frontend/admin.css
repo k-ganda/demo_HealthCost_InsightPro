@@ -165,23 +165,64 @@ header {
 
 /* Welcome Message */
 /* Welcome Message */
-.welcome {
-	background-color: var(--background-color3);
+.content {
 	padding: 20px;
 	margin-left: 280px;
 	border-radius: 10px;
 	position: absolute;
-	top: 100px;
-	left: 50%;
+	top: 70px;
+	left: 40%;
 	transform: translateX(-50%);
 	z-index: 99;
+	width: 80%;
+	max-width: 800px;
 }
 
 .welcome h1 {
+	font-size: 28px;
+	color: #333;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.guidelines {
+	border-top: 1px solid #ddd;
+	padding-top: 20px;
+}
+
+.guidelines h2 {
 	font-size: 24px;
-	color: var(--primary-color);
+	color: #555;
 	margin-bottom: 10px;
 	text-align: center;
+}
+
+.guidelines p {
+	font-size: 16px;
+	color: #777;
+	text-align: center;
+}
+
+.guidelines ul {
+	list-style-type: none;
+	text-align: center;
+	padding-left: 0;
+}
+
+.guidelines li {
+	margin-bottom: 10px;
+}
+
+.guidelines li p {
+	margin-bottom: 0;
+}
+
+.guidelines li:before {
+	content: '\2022'; /* Bullet character */
+	color: #555;
+	display: inline-block;
+	width: 1em;
+	margin-left: -1em;
 }
 
 #logout {
@@ -191,4 +232,59 @@ header {
 .sidebar .logo {
 	width: 120px;
 	height: auto;
+}
+
+@media screen and (max-width: 480px) {
+	header {
+		padding: 0 15px;
+	}
+
+	.search-input {
+		width: calc(100% - 70px);
+	}
+
+	.search-button {
+		padding: 6px 10px;
+	}
+
+	.logosec,
+	.message {
+		gap: 20px;
+	}
+
+	.circle {
+		left: 15px;
+		top: 6px;
+	}
+
+	.sidebar {
+		width: 150px;
+	}
+
+	.content {
+		margin-left: 5px;
+		padding: 10px;
+	}
+
+	.welcome h1 {
+		font-size: 24px;
+		margin-bottom: 15px;
+	}
+
+	.guidelines h2 {
+		font-size: 20px;
+	}
+
+	.guidelines p {
+		font-size: 14px;
+	}
+}
+@media screen and (max-width: 768px) {
+	.sidebar {
+		width: 200px;
+	}
+
+	.content {
+		margin-left: 180px;
+	}
 }

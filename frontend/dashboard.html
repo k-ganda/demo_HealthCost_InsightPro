@@ -78,5 +78,15 @@
 				window.location.href = './form.html';
 			});
 		</script>
+		<script>
+			document.addEventListener('DOMContentLoaded', async () => {
+				const table = document.getElementById('usersTable');
+				await fetch('http://127.0.0.1:3000/api/user/').then(
+					async (response) => {
+						const result = await response.json();
+					}
+				);
+			});
+		</script>
 	</body>
 </html>

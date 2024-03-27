@@ -1,0 +1,76 @@
+:root {
+	--background-color1: #fafaff;
+	--background-color2: #ffffff;
+	--background-color3: #ededed;
+	--background-color4: #cad7fda4;
+	--primary-color: #4b49ac;
+	--secondary-color: #0c007d;
+	--border-color: #3f0097;
+	--one-use-color: #3f0097;
+	--two-use-color: #5500cb;
+}
+
+.user-card {
+	background-color: var(--background-color4);
+	border-radius: 10px;
+	padding: 15px;
+	margin-bottom: 15px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+	margin-bottom: 10px;
+}
+
+.user-name,
+.user-email,
+.user-location {
+	margin: 5px 0;
+}
+
+.user-excel table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.user-excel th,
+.user-excel td {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+.user-excel th {
+	background-color: #f2f2f2;
+}
+
+.user-form {
+	margin-top: 20px;
+}
+
+.user-form form {
+	width: 100%;
+}
+
+.user-form label,
+.user-form textarea,
+.user-form button {
+	display: block;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.user-form textarea {
+	height: 100px;
+}
+
+.user-form button {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.user-form button:hover {
+	background-color: #0056b3;
+}

@@ -53,4 +53,41 @@ router.post('/login', async (req, res) => {
 	//res.send('Logged in');
 });
 
+router.get('/users', async (req, res) => {
+	try {
+		const users = await User.find();
+		res.status(200).json({
+			Message: 'Users retrieved Successfully',
+			Users: users,
+		});
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ Message: 'Server Error' });
+	}
+});
+
+router.post('/update', async (req, res) => {
+	try {
+		// Find the user by email and update the specified field
+		const updatedUser = await User.findOneAndUpdate(
+			{ email: req.body.email },
+			{
+				$set: { Report_and_Recommendation: req.body.Report_and_Recommendation },
+			},
+			{ new: true }
+		);
+
+		// Check if the user exists
+		if (!updatedUser) {
+			return res.status(404).send('User not found');
+		}
+
+		// Return the updated user
+		res.send(updatedUser);
+	} catch (error) {
+		// Handle any errors
+		res.status(400).json(error);
+	}
+});
+
 module.exports = router;

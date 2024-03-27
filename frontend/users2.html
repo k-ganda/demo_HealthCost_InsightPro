@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>User Data</title>
+		<link rel="stylesheet" href="users.css" />
+	</head>
+	<body>
+		<div id="userDataContainer"></div>
+		<div id="excelFilesTable"></div>
+	</body>
+	<script>
+		document.addEventListener('DOMContentLoaded', async () => {
+			const userDataContainer = document.getElementById('userDataContainer');
+			await fetch('http://127.0.0.1:3000/api/user/users').then(
+				async (response) => {
+					const result = await response.json();
+					console.log(result);
+					const filteredUsers = result.Users.filter(
+						(user) => user.role === 'contact person' || user.role !== 'admin'
+					);
+					filteredUsers.forEach((user) => {
+						const userDiv = document.createElement('div');
+						userDiv.classList.add('user-card');
+						userDiv.innerHTML = `
+		                      <p><strong>Name:</strong> ${user.name}</p>
+		                      <p><strong>Email:</strong> ${user.email}</p>
+		                      <p><strong>Insurance name:</strong> ${
+														user.insurance_name
+													}</p>
+		                      <p><strong>Location:</strong> ${user.location}</p>
+		                      ${
+														user.Report_and_Recommendation
+															? `<p><strong>Recommendations:</strong> ${user.Report_and_Recommendation}</p>
+		                          <p><em>Recommendations have already been responded</em></p>`
+															: `<div class="user-form">
+		                              <h3>Reports and Recommendations</h3>
+		                              <form>
+		                                  <input type="hidden" id="email" value="${user.email}">
+		                                  <label for="recommendations">Recommendations:</label>
+		                                  <textarea id="recommendations"></textarea>
+		                                  <button type="submit">Submit</button>
+		                              </form>
+		                          </div>`
+													}
+		                      <hr>
+		                  `;
+						userDataContainer.append(userDiv);
+					});
+				}
+			);
+		});
+	</script>
+</html>
