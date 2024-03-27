@@ -10,6 +10,26 @@
 	--two-use-color: #5500cb;
 }
 
+header {
+	background-color: var(
+		--background-color1
+	); /* Use the primary background color */
+	padding: 10px 20px; /* Adjust padding as needed */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: center; /* Center the logo horizontally */
+	align-items: center; /* Center the logo vertically */
+}
+
+.logo {
+	width: 100px; /* Adjust width as needed */
+	height: auto; /* Maintain aspect ratio */
+}
+
+.logo:hover {
+	cursor: pointer; /* Change cursor to pointer on hover */
+}
+
 .user-card {
 	background-color: var(--background-color4);
 	border-radius: 10px;

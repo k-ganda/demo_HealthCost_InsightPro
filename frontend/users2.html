@@ -7,6 +7,11 @@
 		<link rel="stylesheet" href="users.css" />
 	</head>
 	<body>
+		<header>
+			<a href="admin.html">
+				<img src="images/logo.png" alt="Logo" class="logo" />
+			</a>
+		</header>
 		<div id="userDataContainer"></div>
 	</body>
 	<script>
@@ -29,6 +34,7 @@
 														user.insurance_name
 													}</p>
 		                      <p><strong>Location:</strong> ${user.location}</p>
+							  <p><strong>Excel Files:</strong> ${user.excelFiles}</p>
 		                      ${
 														user.Report_and_Recommendation
 															? `<p><strong>Recommendations:</strong> ${user.Report_and_Recommendation}</p>

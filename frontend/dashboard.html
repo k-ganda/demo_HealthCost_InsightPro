@@ -51,41 +51,44 @@
 			</ul>
 		</div>
 
-		<div class="content">
-			<h1>Welcome to Your Dashboard, {{contactPerson.name}}</h1>
-			<p>Your role: {{contactPerson.role}}</p>
-			<p>Your email: {{contactPerson.email}}</p>
-			<h2>Recommendations:</h2>
-			<ul>
-				{{#each recommendations}}
-				<li>{{this}}</li>
-				{{/each}}
-			</ul>
-
-			<h2>Reports:</h2>
-			<ul>
-				{{#each reports}}
-				<li>{{this}}</li>
-				{{/each}}
-			</ul>
+		<div class="main-content">
+			<div id="userDataContainer"></div>
 		</div>
 
 		<script>
-			const logoutBtn = document.getElementById('logout');
-			// JavaScript for Logout Functionality
-			logoutBtn.addEventListener('click', () => {
-				localStorage.removeItem('auth-token');
-				window.location.href = './form.html';
-			});
-		</script>
-		<script>
 			document.addEventListener('DOMContentLoaded', async () => {
-				const table = document.getElementById('usersTable');
-				await fetch('http://127.0.0.1:3000/api/user/').then(
+				const userDataContainer = document.getElementById('userDataContainer');
+
+				await fetch('http://localhost:3000/api/user/users', {}).then(
 					async (response) => {
 						const result = await response.json();
+						console.log(result);
+
+						const userDiv = document.createElement('div');
+						userDiv.classList.add('user-info');
+						userDiv.innerHTML = `
+                    <p><strong>Name:</strong> ${result.name}</p>
+                    <p><strong>Email:</strong> ${result.email}</p>
+                    <p><strong>Insurance name:</strong> ${
+											result.insurance_name
+										}</p>
+                    <p><strong>Location:</strong> ${result.location}</p>
+                    <p><strong>Excel Files:</strong> ${result.excelFiles}</p>
+                    ${
+											result.recommendations
+												? `<p><strong>Recommendations:</strong> ${result.recommendations}</p>`
+												: `<p><em>No recommendations available</em></p>`
+										}
+                `;
+						userDataContainer.append(userDiv);
 					}
 				);
+			});
+
+			const logoutBtn = document.getElementById('logout');
+			logoutBtn.addEventListener('click', () => {
+				localStorage.removeItem('token');
+				window.location.href = './form.html';
 			});
 		</script>
 	</body>
