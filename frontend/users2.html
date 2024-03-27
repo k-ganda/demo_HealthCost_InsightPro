@@ -8,7 +8,6 @@
 	</head>
 	<body>
 		<div id="userDataContainer"></div>
-		<div id="excelFilesTable"></div>
 	</body>
 	<script>
 		document.addEventListener('DOMContentLoaded', async () => {
@@ -40,7 +39,7 @@
 		                                  <input type="hidden" id="email" value="${user.email}">
 		                                  <label for="recommendations">Recommendations:</label>
 		                                  <textarea id="recommendations"></textarea>
-		                                  <button type="submit">Submit</button>
+		                                  <button id="submit">Submit</button>
 		                              </form>
 		                          </div>`
 													}
@@ -48,6 +47,31 @@
 		                  `;
 						userDataContainer.append(userDiv);
 					});
+
+					document
+						.getElementById('submit')
+						.addEventListener('click', async (e) => {
+							e.preventDefault();
+							var data = {
+								email: document.getElementById('email').value,
+								Report_and_Recommendation:
+									document.getElementById('recommendations').value,
+							};
+
+							await fetch('http://localhost:3000/api/user/update', {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json',
+								},
+								body: JSON.stringify(data),
+							}).then(async (response) => {
+								const result = await response.json();
+								console.log(result);
+								if (response.status == 200) {
+									window.location.reload();
+								}
+							});
+						});
 				}
 			);
 		});
