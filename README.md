@@ -47,22 +47,22 @@ After cloning, move into the directory:
    
          # npm start
    
-   This command will start the application, ensure that both the server and the database are connectd. And by default, the application will be accessible at 'http://localhost: 3000' in your web browser.
+   This command will start the application, ensuring the server and the database are connected. And by default, the application will be accessible at ' '(http://127.0.0.1:5501/frontend/index.html)' in your web browser.
 
 7. **Navigate to the homepage**
 
-   Find the file index.html, right click and open with live server and you should find the interface for the home page.
+   Find the file index.html, right-click it, and open it with the live server. You should find the interface for the home page.
 
 8. **Sign up/ Log in**
-   On the top right hand side of the website, click on the login and it will take you to a section where a user can either log in if they have an account or sign up for a new user.
+   On the top right-hand side of the website, click on login, and it will take you to a section where a user can either log in if they have an account or sign up as a new user.
    **A user must first sign up before logging in.**
    
-   Fill in the form, **NOTE**: On the role section, ensure that you have all your letters in lowercase, ("admin" or "contact person"). If you sign up as an "admin", you should only fill up the form upto phone number and leave the text area whil the contact person will fill the whole form.
+   Fill in the form. **NOTE**: In the role section, ensure that you have all your letters in lowercase ("admin" or "contact person"). If you sign up as an "admin," you should only fill up the form to the phone number and leave the text area while the contact person will fill the whole form.
    
-   Once sign up is successful, head to the log in section and log in with the email and password you signed up with and depending on the role you are, you will be taken to the respetive dashboard.
+   Once you have signed up, you'll head to the log-in section and log in with the email and password you signed up with. Depending on the role you are in, you will be taken to the respective dashboard.
 
    
-   The contact person dashbaord just contains the information they added and recommendations once the admin has responded to them, while the admin contains every information for all contact persons logged in and a sction to add the report and reccommendations after going through their data.
+   The contact person dashboard contains the information they added and recommendations once the admin has responded to them. In contrast, the admin contains the information for all contact persons logged in and a section to add the report and recommendations after going through their data.
     
 
 
