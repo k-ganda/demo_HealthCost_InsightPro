@@ -64,13 +64,16 @@
 									document.getElementById('recommendations').value,
 							};
 
-							await fetch('http://localhost:3000/api/user/update', {
-								method: 'POST',
-								headers: {
-									'Content-Type': 'application/json',
-								},
-								body: JSON.stringify(data),
-							}).then(async (response) => {
+							await fetch(
+								'https://demo-healthcost-insightpro.onrender.com/api/user/update',
+								{
+									method: 'POST',
+									headers: {
+										'Content-Type': 'application/json',
+									},
+									body: JSON.stringify(data),
+								}
+							).then(async (response) => {
 								const result = await response.json();
 								console.log(result);
 								if (response.status == 200) {
