@@ -45,7 +45,7 @@ const userSchema = new mongoose.Schema({
 	},
 	excelFiles: {
 		type: String,
-		required: true,
+		required: false,
 	},
 
 	Report_and_Recommendation: {
