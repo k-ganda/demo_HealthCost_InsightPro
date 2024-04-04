@@ -1,7 +1,16 @@
 ### Demo_HealthCost_InsightPro v1.0 - Prototype
-HealthCost Insightpro is a web application that aims to empower insurers and their companies with data-driven insights to make informed decisions regarding healthcare cost management. 
+HealthCost Insightpro is a web application that aims to empower insurers and their companies with data-driven insights to make informed decisions regarding healthcare cost management, ultimately leading to better financial outcomes and improved employee well-being.
 
-The project seeks to:
+## The System:
+
+**Two Roles**: Admin and Contact Person (Insurance Company)
+**Contact Person**: Inputs data like member location, covers, and limits for analysis.
+**Admin**: Analyzes data, generates reports with recommendations to reduce costs, and suggests further steps.
+**Insurance Company**: Uses reports and recommendations to make informed decisions.
+
+This is the first version (prototype), and some functionalities are under development.
+
+## Project Goals
 **Analyze and Forecast Healthcare Costs**: Utilize electronic health records and demographic data to analyze and forecast healthcare costs for companies' workforces enrolled in  health insurance.
 
 **Optimize Cost Management Strategies**: Provide insurers and companies with insights and recommendations to optimize cost management strategies while maintaining quality healthcare services.
@@ -12,7 +21,8 @@ The project seeks to:
 Insurers
 Healthcare companies
 
-Therefore, this README provides clear instructions for locally setting up and running the **prototype** application.
+## Getting Started(local setup)
+This README guides you through setting up and running the Demo_HealthCost_InsightPro prototype application locally.
 
 ## Requirements
 Node.js
@@ -39,7 +49,7 @@ After cloning, move into the directory:
           # cd demo_HealthCost_InsightPro
 
 4. **Install the dependencies**
-   Still, on your terminal, write the command below. This command will install all required dependencies for the project.
+   Still, on your terminal, write the command below. This command will install all required dependencies for the project. 
    
          # npm install
 
@@ -47,23 +57,33 @@ After cloning, move into the directory:
    
          # npm start
    
-   This command will start the application, ensuring the server and the database are connected. And by default, the application will be accessible at ' '(http://127.0.0.1:5501/frontend/index.html)' in your web browser.
+   This command will start the application, ensuring the server and the database are connected. You can access it at http://127.0.0.1:5501/frontend/index.html in your web browser.
 
-7. **Navigate to the homepage**
+## Exploring the Application: 
 
+1. **Homepage**: 
    Find the file index.html, right-click it, and open it with the live server. You should find the interface for the home page.
+   
+   Alternatively, You can access the deployed version at https://k-ganda.github.io/frontend/#home (live website for both frontend and backend).
+   This which contains the live website of both the frontend and backend of it.
 
-8. **Sign up/ Log in**
+
+2. **Sign up/ Log in**
    On the top right-hand side of the website, click on login, and it will take you to a section where a user can either log in if they have an account or sign up as a new user.
-   **A user must first sign up before logging in.**
+   **Sign up first before logging in.**
    
-   Fill in the form. **NOTE**: In the role section, ensure that you have all your letters in lowercase ("admin" or "contact person"). If you sign up as an "admin," you should only fill up the form to the phone number and leave the text area while the contact person will fill the whole form.
+  Fill out the form, ensuring lowercase letters for the role ("admin" or "contact person").
+  
+         Admins only need to fill up to the phone number section.
+         
+         Contact persons fill out the entire form.
    
-   Once you have signed up, you'll head to the log-in section and log in with the email and password you signed up with. Depending on the role you are in, you will be taken to the respective dashboard.
+ Log in with your email and password after signing up.
 
-   
-   The contact person dashboard contains the information they added and recommendations once the admin has responded to them. In contrast, the admin contains the information for all contact persons logged in and a section to add the report and recommendations after going through their data.
-    
+ ## Dashboards: 
+  **Contact Person**: View your added information and admin recommendations (if available).
+  
+**Admin**: View information for all contact persons and add reports with recommendations after data analysis.
 
 
 
@@ -78,7 +98,7 @@ After cloning, move into the directory:
 
 **Visualizations for Member Data**: Future versions will include visualizations to display trends in member data, providing insights into patterns and changes over time.
 
-**Notification and Alerts**: Admins will receive notifications when new users register, and contact persons will be alerted once recommendations are provided by the admin.
+**Notification and Alerts**: Admins will receive notifications when new users register, and contact persons will be alerted once the admin provides recommendations.
 
 **Enhanced Security Measures**: We aim to implement robust security measures, including restrictions to ensure only one contact person per insurance company, thus preventing data leakages and enhancing data security.
 
