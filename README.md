@@ -65,7 +65,7 @@ After cloning, move into the directory:
    Find the file index.html, right-click it, and open it with the live server. You should find the interface for the home page.
    
    Alternatively, You can access the deployed version at https://k-ganda.github.io/frontend/#home (live website for both frontend and backend).
-   This which contains the live website of both the frontend and backend of it.
+   This contains the live website of both the frontend and backend of it. **NOTE** There is a slight delay after clicking the login and sign button; you might not get to the dashboards immediately, so please be patient.
 
 
 2. **Sign up/ Log in**
